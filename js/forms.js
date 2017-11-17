@@ -16,7 +16,10 @@
                             $("#height_value").css("margin-top", y/10 +10 + "vh");
                             $("#myForm").fadeOut(1500);
                             $("#submit").fadeOut(1500);
-                            $("#first_span").fadeOut(1500);
+                            $("#first_span").fadeOut(1500, function() {
+                                $("#submit2").fadeIn(500);
+                            });
+                            
                             
                         }
                         else {
@@ -36,3 +39,14 @@
     
                 
             };
+function add_elements () {
+    $("#submit2").fadeOut(1000, function (){
+        $("#select_element").fadeIn(1000);
+        $("#submit4").fadeIn(1000);
+    });
+};
+function accept_direction () { 
+var select_direction = $( "#select_element option:selected" ).val();
+    alert(select_direction);
+
+};
