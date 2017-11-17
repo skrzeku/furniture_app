@@ -1,0 +1,66 @@
+#rightone {
+    background-color: aqua;
+}
+#leftone {
+    background-color: beige;
+    height: 90vh;
+}
+#width_value {
+    margin-left: 6vw;
+    margin-top: 7vh;
+    text-align: center;
+    position: absolute;
+    background-color: aqua;
+}
+#height_value {
+    margin-left: 3vw;
+    position: absolute;
+    text-align: center;
+    -webkit-transform: rotate(270deg);	
+-moz-transform: rotate(270deg);
+-ms-transform: rotate(270deg);
+-o-transform: rotate(270deg);
+transform: rotate(270deg);
+}
+
+#backgrounds {
+    margin: 6vw;
+    width: 60vw;
+    height: 60vh;
+    background-color: white;
+    max-width: 771px;
+    padding: 14px 20px;
+    line-height: 45px;
+    background-position: 0 1px;
+    background-size: 30px 30px;
+    background-image: -webkit-repeating-linear-gradient(0deg, #80DFFF, #80DFFF 1px, transparent 1px, transparent 40px), -webkit-repeating-linear-gradient(90deg, #80DFFF, #80DFFF 0.5px, transparent 1px, transparent 40px);
+    background-image: repeating-linear-gradient(0deg, #80DFFF, #80DFFF 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, #80DFFF, #80DFFF 0.5px, transparent 1px, transparent 40px);
+}
+#error {
+    font-size: 1vw;
+    font-weight: 800;
+    color: red;
+}
+.pion_elements {
+    display: inline;
+}
+#error2 {
+    font-size: 1vw;
+    font-weight: 800;
+    color: red;
+}
+#theImg {
+    margin-top: -3vh;
+    margin-left: -2vw;
+}
+#span_el1 {
+    position: absolute;
+    margin-top: 14vh;
+    margin-left: -10vw;
+    background-color: bisque;
+    
+}
+#span_el2 {
+    margin-left: -12vw;
+    background-color: aqua;
+}
