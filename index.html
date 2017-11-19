@@ -20,13 +20,13 @@
                 <span id="width_value"></span>
                 <span id="height_value"></span>
         <div id="backgrounds" class="col-md-12">
-            <div class="pion_elements" id="first_el"><span id="span1">s</span></div>
-            <div class="pion_elements" id="first_el"><span id="span2">s2</span></div>
-            <div class="pion_elements" id="first_el">3</div>
-            <div class="pion_elements" id="first_el">4</div>
-            <div class="pion_elements" id="first_el">5</div>
-            <div class="pion_elements" id="first_el">6</div>
-            <div class="pion_elements" id="first_el">7</div>
+            <div class="pion_elements" id="1_div"></div>
+            <div class="pion_elements" id="2_div"></div>
+            <div class="pion_elements" id="3_div">3</div>
+            <div class="pion_elements" id="4_div">4</div>
+            <div class="pion_elements" id="5_div">5</div>
+            <div class="pion_elements" id="6_div">6</div>
+            <div class="pion_elements" id="7_div">7</div>
             
             <div>8</div>
             <div>9</div>
@@ -53,10 +53,12 @@
                 <br />
                                     <span>Wstaw element:</span><br />
                  <select name="elements">
-  <option value="volvo" selected>szafka 51-60cm</option>
-  <option value="saab">szafka 41-50</option>
-  <option value="fiat">lodówka</option>
-  <option value="audi">szafka ze zlewem</option>
+  <option value="1" selected>szafka 51-60cm</option>
+  <option value="2">szafka 41-50</option>
+  <option value="3">lodówka</option>
+  <option value="4">szafka ze zlewem</option>
+ <option value="5">słupek (piekarnik i mikrofala)</option>
+                     
 </select> 
                 <br /><br />
                  <span>Podaj wymiary: </span><br />
@@ -67,9 +69,8 @@
              <span id ="error2"></span><br>
             </form>
             <button id="submit" name="submit" onclick="add_element();" style="display: none">Wstaw</button> 
-            
-            
             <button id="submit2" name="submit" onclick="add_elements();" style="display: none">Wstaw Elementy</button>
+            <button id="submit6" name="submit" onclick="edit_elements();" style="display: none">Edytuj Elementy</button>
             <button id="submit3" name="submit" style="display: none">Wybierz</button>
             
             
@@ -81,9 +82,9 @@
                 <option value="verti_diect">Pionowo</option>
                 </select> 
             </form>
-            <form id="hirizontal_options" style="display: none">
-                <span>Poziomo:</span><br />
-            <select name ="num_horizontal" style="display: none">
+            <form id="horizontal_options" style="display: none">
+               <span>Poziomo</span> <br />
+            <select name ="num_horizontal">
                 <option value="first_el" selected>1 element</option>
                 <option value="sec_el">2 element</option>
                 <option value="rd_el">3 element</option>
@@ -91,26 +92,37 @@
                 <option value="5th_el">5 element</option>
                 <option value="6th_el">6 element</option>
                 <option value="7th_el">7 element</option>
+                </select><br /><br />
+                <span>Podaj wymiary: </span><br />
+                <span>Szerokość [cm]</span>
+  <input type="text" value="" id="width_el1"><br>
+  Długość [cm]:<br>
+  <input type="text" name="height" value="" id="height_el1"><br>
                 
-                </select> 
             </form>
             
             <form id="vertical_options" style="display: none">
 
-                <span>Pionowo:</span> <br />
-                <select name ="num_vertical" style="display: none"> 
-                
+                <span>Pionowo</span><br />
+                <select name ="num_vertical"> 
                 <option value="8th_el">8 element</option>
                 <option value="9th_el">9 element</option>
                 <option value="10th_el">10 element</option>
                 <option value="11th_el">11 element</option>
                 <option value="12th_el">12 element</option>
                 <option value="13th_el">13 element</option>
-                
+                    <br /><br />
+                <span>Podaj wymiary: </span><br />
+                Szerokość [cm]:
+  <input type="text" value="" id="width_el1"><br>
+  Długość [cm]:<br>
+  <input type="text" name="height" value="" id="height_el"><br>
                 
                 </select>
             </form>
             <button id="submit4" name="submit" onclick="accept_direction();" style="display: none">Wybierz</button>
+            <button id="submit5" name="submit" onclick="add_ele();" style="display: none">Wstaw</button>
+            
             
             
         

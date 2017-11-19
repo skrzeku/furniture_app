@@ -24,6 +24,7 @@ transform: rotate(270deg);
 }
 
 #backgrounds {
+    position: relative;
     margin: 6vw;
     width: 60vw;
     height: 60vh;
@@ -50,17 +51,27 @@ transform: rotate(270deg);
     color: red;
 }
 #theImg {
-    margin-top: -3vh;
-    margin-left: -2vw;
-}
-#span_el1 {
     position: absolute;
-    margin-top: 14vh;
-    margin-left: -10vw;
+    top: 0;
+    left: 0;
+}
+.span_down {
+    
+    left: 0;
     background-color: bisque;
     
 }
-#span_el2 {
-    margin-left: -12vw;
+.span_left {
+    
+    left: 0;
+    background-color: aqua;
+}
+#1_div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+}
+#sec_el {
     background-color: aqua;
 }
