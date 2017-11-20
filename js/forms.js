@@ -18,14 +18,18 @@ function function1 () {
                         if (y <= 380) {
     
                               $( "#backgrounds" ).css({
-      "width": x/6 + "vw",
-      "height": y/5 + "vh"
+      "width": x* 2 + "px",
+      "height": y*1.4 + "px",
+      "max-width": x*2 +"px",
+      "max-height": y*1.4 + "px",
+      "padding": "0px"
+      
     });  
                         $("#error").text("");
                         $("#width_value").text(x + " cm");
                         $("#height_value").text(y + " cm");
-                            $("#width_value").css("width", x/6 + "vw");
-                            $("#height_value").css("margin-top", y/10 +10 + "vh");
+                            $("#width_value").css("width", x* 2 + "px");
+                            $("#height_value").css("margin-top", y*0.7+60 + "px");
                             $("#myForm").fadeOut(1500);
                             $("#submit").fadeOut(1500);
                             $("#first_span").fadeOut(1500, function() {
@@ -88,30 +92,67 @@ function add_ele() {
                 var val1_el = $("#width_el1").val();
                 var val2_el = $("#height_el1").val();
                 var div_el = "";
-                if (click_wstaw == 1) {
-                    div_el = "#1_div";
-                    check_element();
-                }
-                if (click_wstaw == 2) {
-                    div_el = "#2_div";
-                    check_element();
-                }
+                var img_src = "";
+                var img_id = "";
+    
+                    
+                div_el = "#" + click_wstaw + "_div";
+                img_id = "#" + click_wstaw + "img";
+                check_element();
+                set_widthelements();
+                
+    
     function check_element () {
                 if (elements == "1") {
-                   $(div_el).append('<img id="theImg" src="image/rectangle.png"/>');
-                    //$(div_el).text("element");
-                    $("#theImg").css({
-                        "width": val1_el/6 + "vw",
-                        "height": val2_el/5 + "vh"
+                    img_src = "image/rectangle.png";
+                    main_addfunc ();
+                  
+                }
+                if (elements == "2") {
+                    img_src = "image/squ.png";
+                 main_addfunc ();
+                }
+        
+        else {
+           console.log("nothing");
+        }
+        
+        
+                function main_addfunc () {
+                   $(img_id).attr('src', img_src);
+                    $(img_id).css({
+                        "width": val1_el * 2 + "px",
+                        "height": val2_el * 1.4 + "px",
+                        "margin": "0",
+                        "white-space": "0"
+                       // "margin-left": "-20px",
+                       // "margin-top": "-15px"
                     });
-                    //$(div_el).append("<span class='span_left'>1</span>");
-                    //$(div_el).append("<span class='span_down'>2</span>");
-                    $(".span_left").text(val1_el);
-                    $(".span_down").text(val2_el);
-                    alert(click_wstaw);
-                }
-                else {
-                    $(div_el).append('<img src="image/squ.png"/>');
-                }
+                    $(img_id).show();
+                    
+                };
     };
             };
+function set_widthelements () {
+    
+    /*for (var i = 0; i <= click_wstaw.length; i++) {
+        var txt_width = "width_element" + i ;
+        var imagesi = "#" + i + "img";
+        var width_eli = $(imagesi).width();
+        alert(width_eli);
+    } */
+    
+    var width_element1 = $("#1img").width();
+    var width_element2 = $("#2img").width();
+    var width_element3 = $("#3img").width();
+    var width_element4 = $("#4img").width();
+    var width_element5 = $("#5img").width();
+    var width_element6 = $("#6img").width();
+    var width_element7 = $("#7img").width();
+    
+    var values = (width_element1 + width_element2 + width_element3 + width_element4 + width_element5 + width_element6 + width_element7)/2;
+   
+    $("#width_elvalue").text("Całkowita szerokość elementów: " + values);
+    $("#width_elvalue").css("margin-left", "-" + values + "px");
+    
+};
