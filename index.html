@@ -20,23 +20,36 @@
                 <span id="width_value"></span>
                 <span id="height_value"></span>
         <div id="backgrounds" class="col-md-12">
-            <div class="pion_elements" id="1_div"><img id="1img" style="display: none">
-            </div><div class="pion_elements" id="2_div"><img id="2img" style="display: none">
-            </div><div class="pion_elements" id="3_div"><img id="3img" style="display: none">
-            </div><div class="pion_elements" id="4_div"><img id="4img" style="display: none">
-            </div><div class="pion_elements" id="5_div"><img id="5img">
-            </div><div class="pion_elements" id="6_div"> <img id="6img">
-            </div><div class="pion_elements" id="7_div"><img id="7img">
-            </div>
-            <span id="width_elvalue"></span>
             
-            <div>8</div>
-            <div>9</div>
-            <div>10</div>
-            <div>11</div>
-            <div>12</div>
+            
+            
+            <div id="top" class="top">
+            <img id="8img" class="imgis" style="display: none">
+            <img id="9img" class="imgis" style="display: none">
+            <img id="10img" class="imgis" style="display: none">
+            <img id="11img" class="imgis" style="display: none">
+            <img id="12img" class="imgis" style="display: none">
+            <img id="13img" class="imgis" style="display: none">
+            <img id="14img" class="imgis" style="display: none">
                 
-                </div>
+            </div> <!-- End bottom -->
+            
+            <div id="bottom" class="bottom">
+            <img id="1img" class="imgis" style="display: none">
+            <img id="2img" class="imgis" style="display: none">
+            <img id="3img" class="imgis" style="display: none">
+            <img id="4img" class="imgis" style="display: none">
+            <img id="5img" class="imgis" style="display: none">
+            <img id="6img" class="imgis" style="display: none">
+            <img id="7img" class="imgis" style="display: none">
+            
+            
+            </div> <!-- End top -->
+            
+            <span id="width_elvalue"></span>
+           
+                
+                </div>  <!-- End backgrounds -->
         
         </div>
         <div id="rightone" class="col-md-2 col-sm-12">
@@ -68,6 +81,8 @@
   <input type="text" value="" id="width_el1"><br>
   Długość [cm]:<br>
   <input type="text" name="height" value="" id="height_el1"><br>
+               Głębokość [cm]:<br>
+  <input type="text" name="deep" value="" id="deep_el1"><br>
              <span id ="error2"></span><br>
             </form>
             <button id="submit" name="submit" onclick="add_element();" style="display: none">Wstaw</button> 
@@ -80,10 +95,13 @@
                 <span>Wstaw element:</span>
                 <br />
                 <select name ="select_direction">
-                <option value="hori_diect" selected>Poziomo</option>
-                <option value="verti_diect">Pionowo</option>
+                <option value="top_direct" selected>Wiszący</option>
+                <option value="bottom_diect">Stojący</option>
                 </select> 
             </form>
+            
+            
+            
             <form id="horizontal_options" style="display: none">
                <span>Poziomo</span> <br />
             <select name ="num_horizontal">
@@ -100,6 +118,8 @@
   <input type="text" value="" id="width_el1"><br>
   Długość [cm]:<br>
   <input type="text" name="height" value="" id="height_el1"><br>
+                Głębokość [cm]:<br>
+  <input type="text" name="height" value="" id="deep_el1"><br>
                 
             </form>
             
