@@ -7,11 +7,17 @@ var sub3 = "#submit3";
 var sub4 = "#submit4";
 var sub5 = "#submit5";
 var sub6 = "#submit6";
-var elements_form = "#elements_form";
+var botelements_form = "#botelements_form";
+var topelements_form = "#topelements_form";
 var click_wstaw = 0;
 var select_direction = "";
 var img_id = "";
 var dir_val = "";
+var values_bottom = "";
+var values_top = "";
+ var width_element= []; 
+var s = 0;
+
 
 
 function function1 () {
@@ -74,8 +80,9 @@ select_direction = $( "#select_element option:selected" ).val();
     
     if(select_direction == "top_direct") {
        click_wstaw = 7;
+        $("#width_topvalue").show();
         $("#select_element").fadeOut(1000);
-        $(elements_form).fadeIn(1000);
+        $(topelements_form).fadeIn(1000);
         $(sub4).fadeOut(1000, function () {
             $(sub5).fadeIn(1000);
         });
@@ -84,9 +91,10 @@ select_direction = $( "#select_element option:selected" ).val();
     }
     else {
         click_wstaw = 0;
+        $("#width_botvalue").show();
 
         $("#select_element").fadeOut(1000);
-        $(elements_form).fadeIn(1000);
+        $(botelements_form).fadeIn(1000);
         $(sub4).fadeOut(1000, function () {
             $(sub5).fadeIn(1000);
         });
@@ -99,24 +107,16 @@ function add_ele() {
     
                     click_wstaw++;
     
-               
-                var elements = $( "#elements_form option:selected" ).val();
+                var elements = $( "#botelements_form option:selected" ).val();
                 var val1_el = $("#width_el1").val();
                 var val2_el = $("#height_el1").val();
                 var div_el = "";
                 var img_src = "";
-   
-    
-    
-                
-    
-    
-    
-    
-               // div_el = "#" + click_wstaw + "_div";
+
                 img_id = "#" + click_wstaw + "img";
                 check_element();
                 set_widthelements();
+    
                 
     
     function check_element () {
@@ -139,12 +139,7 @@ function add_ele() {
                    $(img_id).attr('src', img_src);
                     $(img_id).css({
                         "width": val1_el * 2.25 + "px",
-                        "height": val2_el * 1.5 + "px",
-                       // "position": "absolute",
-                       // "margin": "0",
-                       //"float": "left"
-                       // "margin-left": "-20px",
-                       // "margin-top": "-15px"
+                        "height": val2_el * 1.5 + "px"
                     });
                     $(img_id).show();
                     
@@ -153,7 +148,27 @@ function add_ele() {
     
             };
 function set_widthelements () {
+   
+   width_element[2] = 0; width_element[3] = 0;
+   width_element[4] = 0; width_element[5] = 0;
+   width_element[6] = 0; width_element[7] = 0;
+   width_element[8] = 0; width_element[9] = 0;
+   width_element[10] = 0; width_element[11] = 0;
+   width_element[12] = 0; width_element[13] = 0;
+    width_element[14] = 0;
     
+   
+    
+    function create_variables () {
+        for (s = 0; s<=click_wstaw; s++) {
+             var img_ids = "#" + s + "img";
+            width_element[s] =  $(img_ids).width(); 
+            
+            
+        }
+        return width_element;
+    }
+    create_variables();
     /*for (var i = 0; i <= click_wstaw.length; i++) {
         var txt_width = "width_element" + i ;
         var imagesi = "#" + i + "img";
@@ -161,7 +176,7 @@ function set_widthelements () {
         alert(width_eli);
     } */
     
-    var width_element1 = $("#1img").width();
+  /*  var width_element1 = $("#1img").width();
     var width_element2 = $("#2img").width();
     var width_element3 = $("#3img").width();
     var width_element4 = $("#4img").width();
@@ -169,9 +184,21 @@ function set_widthelements () {
     var width_element6 = $("#6img").width();
     var width_element7 = $("#7img").width();
     
-    var values = (width_element1 + width_element2 + width_element3 + width_element4 + width_element5 + width_element6 + width_element7)/2.25;
+    var width_element8 = $("#8img").width();
+    var width_element9 = $("#9img").width();
+    var width_element10 = $("#10img").width();
+    var width_element11 = $("#11img").width();
+    var width_element12 = $("#12img").width();
+    var width_element13 = $("#13img").width();
+    var width_element14 = $("#14img").width(); */
+    
+    values_bottom = (width_element[1] + width_element[2] + width_element[3] + width_element[4] + width_element[5] + width_element[6] + width_element[7])/2.25;
+    values_top = (width_element[8] + width_element[9] + width_element[10] + width_element[11] + width_element[12] + width_element[13] + width_element[14])/2.25;
    
-    $("#width_elvalue").text("Całkowita szerokość elementów: " + values);
-    $("#width_elvalue").css("margin-left", "+" + values + "px");
+    $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
+    $("#width_botvalue").css("margin-left", "+" + values_bottom + "px");
+    
+    $("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
+    $("#width_topvalue").css("margin-left", "+" + values_top + "px");
     
 };

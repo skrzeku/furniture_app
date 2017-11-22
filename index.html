@@ -24,29 +24,28 @@
             
             
             <div id="top" class="top">
-            <img id="8img" class="imgis" style="display: none">
-            <img id="9img" class="imgis" style="display: none">
-            <img id="10img" class="imgis" style="display: none">
-            <img id="11img" class="imgis" style="display: none">
-            <img id="12img" class="imgis" style="display: none">
-            <img id="13img" class="imgis" style="display: none">
-            <img id="14img" class="imgis" style="display: none">
+            <img id="8img" class="imgis" style="display: none"><img id="9img" class="imgis" 
+            style="display: none"><img id="10img" class="imgis" 
+            style="display: none"><img id="11img" class="imgis" 
+            style="display: none"><img id="12img" class="imgis"
+            style="display: none"><img id="13img" class="imgis"
+            style="display: none"><img id="14img" class="imgis" style="display: none">
                 
             </div> <!-- End bottom -->
             
             <div id="bottom" class="bottom">
-            <img id="1img" class="imgis" style="display: none">
-            <img id="2img" class="imgis" style="display: none">
-            <img id="3img" class="imgis" style="display: none">
-            <img id="4img" class="imgis" style="display: none">
-            <img id="5img" class="imgis" style="display: none">
-            <img id="6img" class="imgis" style="display: none">
-            <img id="7img" class="imgis" style="display: none">
+            <img id="1img" class="imgis" style="display: none"><img id="2img" class="imgis" 
+            style="display: none"><img id="3img" class="imgis" 
+            style="display: none"><img id="4img" class="imgis" 
+            style="display: none"><img id="5img" class="imgis" 
+            style="display: none"><img id="6img" class="imgis" 
+            style="display: none"><img id="7img" class="imgis" style="display: none">
             
             
             </div> <!-- End top -->
             
-            <span id="width_elvalue"></span>
+            <span id="width_botvalue" style="display: none"></span>
+            <span id="width_topvalue" style="display: none"></span>
            
                 
                 </div>  <!-- End backgrounds -->
@@ -57,14 +56,14 @@
          <form action="" id="myForm">
   Szerokość [cm]:<br>
   <input type="text" value="" id="width"><br>
-  Długość [cm]:<br>
+  Wysokość [cm]:<br>
   <input type="text" name="height" value="" id="last_name"><br>
              <span id ="error"></span><br>
 </form> 
             <button id="submit" name="submit" onclick="function1();">Uzupełnij</button>
             
             <!-- elements form hiden-->
-            <form id="elements_form" style="display: none">
+            <form id="botelements_form" style="display: none">
                 <br />
                                     <span>Wstaw element:</span><br />
                  <select name="elements">
@@ -79,12 +78,36 @@
                  <span>Podaj wymiary: </span><br />
                 <span>Szerokość [cm]</span>
   <input type="text" value="" id="width_el1"><br>
-  Długość [cm]:<br>
+  Wysokość [cm]:<br>
   <input type="text" name="height" value="" id="height_el1"><br>
                Głębokość [cm]:<br>
   <input type="text" name="deep" value="" id="deep_el1"><br>
              <span id ="error2"></span><br>
             </form>
+            
+            <!-- elements form hiden-->
+            <form id="topelements_form" style="display: none">
+                <br />
+                                    <span>Wstaw element:</span><br />
+                 <select name="elements">
+  <option value="1" selected>szafka 51-60cm</option>
+  <option value="2">szafka 41-50</option>
+  <option value="3">lodówka</option>
+  <option value="4">szafka ze zlewem</option>
+ <option value="5">słupek (piekarnik i mikrofala)</option>
+                     
+</select> 
+                <br /><br />
+                 <span>Podaj wymiary: </span><br />
+                <span>Szerokość [cm]</span>
+  <input type="text" value="" id="width_top"><br>
+  Wysokość [cm]:<br>
+  <input type="text" name="height" value="" id="height_top"><br>
+               Głębokość [cm]:<br>
+  <input type="text" name="deep" value="" id="deep_top"><br>
+             <span id ="error3"></span><br>
+            </form>
+            
             <button id="submit" name="submit" onclick="add_element();" style="display: none">Wstaw</button> 
             <button id="submit2" name="submit" onclick="add_elements();" style="display: none">Wstaw Elementy</button>
             <button id="submit6" name="submit" onclick="edit_elements();" style="display: none">Edytuj Elementy</button>
@@ -99,49 +122,7 @@
                 <option value="bottom_diect">Stojący</option>
                 </select> 
             </form>
-            
-            
-            
-            <form id="horizontal_options" style="display: none">
-               <span>Poziomo</span> <br />
-            <select name ="num_horizontal">
-                <option value="first_el" selected>1 element</option>
-                <option value="sec_el">2 element</option>
-                <option value="rd_el">3 element</option>
-                <option value="4th_el">4 element</option>
-                <option value="5th_el">5 element</option>
-                <option value="6th_el">6 element</option>
-                <option value="7th_el">7 element</option>
-                </select><br /><br />
-                <span>Podaj wymiary: </span><br />
-                <span>Szerokość [cm]</span>
-  <input type="text" value="" id="width_el1"><br>
-  Długość [cm]:<br>
-  <input type="text" name="height" value="" id="height_el1"><br>
-                Głębokość [cm]:<br>
-  <input type="text" name="height" value="" id="deep_el1"><br>
-                
-            </form>
-            
-            <form id="vertical_options" style="display: none">
-
-                <span>Pionowo</span><br />
-                <select name ="num_vertical"> 
-                <option value="8th_el">8 element</option>
-                <option value="9th_el">9 element</option>
-                <option value="10th_el">10 element</option>
-                <option value="11th_el">11 element</option>
-                <option value="12th_el">12 element</option>
-                <option value="13th_el">13 element</option>
-                    <br /><br />
-                <span>Podaj wymiary: </span><br />
-                Szerokość [cm]:
-  <input type="text" value="" id="width_el1"><br>
-  Długość [cm]:<br>
-  <input type="text" name="height" value="" id="height_el"><br>
-                
-                </select>
-            </form>
+         
             <button id="submit4" name="submit" onclick="accept_direction();" style="display: none">Wybierz</button>
             <button id="submit5" name="submit" onclick="add_ele();" style="display: none">Wstaw</button>
             
@@ -155,32 +136,6 @@
             </div>
         </div>
 
-		
-		
-        <script type="text/javascript">
-            function add_element() {
-               
-                var elements = $( "#elements_form option:selected" ).val();
-                var val1_el = $("#width_el1").val();
-                var val2_el = $("#height_el1").val();
-                
-                if (elements == "volvo") {
-                    $("#first_el").append("<img id='theImg' src='image/rectangle.png'/>");
-                    $("#theImg").css({
-                        "width": "10vw",
-                        "height": "20vh"
-                    });
-                    $("#first_el").append("<span id='span_el1'>1</span>");
-                    $("#first_el").append("<span id='span_el2'>2</span>");
-                   // $("#span_el1").css("margin-left", "-5vw");
-                    $("#span_el1").text(val1_el);
-                    $("#span_el2").text(val2_el);
-                }
-                else {
-                    $("#error2").text("zły element");
-                }
-            };
-        </script>
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     </body>
     

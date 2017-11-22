@@ -7,13 +7,13 @@
 }
 #width_value {
    margin-left: 80px;
-    margin-top: 7vh;
+    margin-top: 30px;
     text-align: center;
     position: absolute;
     background-color: aqua;
 }
 #height_value {
-    margin-left: 3vw;
+    margin-left: 40px;
     position: absolute;
     text-align: center;
     -webkit-transform: rotate(270deg);	
@@ -53,10 +53,9 @@ transform: rotate(270deg);
     float: left;
 }
 .imgis {
-   vertical-align: bottom;
-    display: table-cell;
-    margin: 0;
-    float: left;
+  display: inline-block;
+    vertical-align: bottom;
+   
     
     
 }
@@ -96,11 +95,11 @@ transform: rotate(270deg);
 #sec_el {
     background-color: aqua;
 }
-#width_elvalue {
+#width_botvalue {
     position: absolute;
-    bottom: -50;
-    
-    
-    
- 
+    bottom: -50px;
+}
+#width_topvalue {
+    position: absolute;
+    top: -35px;
 }
