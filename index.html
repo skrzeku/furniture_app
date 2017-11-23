@@ -11,7 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="js/forms.js"></script>
+        
     </head>
     <body>
         <div class="container-fluid"> 
@@ -92,7 +92,7 @@
                  <select name="elements">
   <option value="1" selected>szafka 51-60cm</option>
   <option value="2">szafka 41-50</option>
-  <option value="3">lodówka</option>
+  <option value="3">wiszarka</option>
   <option value="4">szafka ze zlewem</option>
  <option value="5">słupek (piekarnik i mikrofala)</option>
                      
@@ -114,6 +114,9 @@
             <button id="submit3" name="submit" style="display: none">Wybierz</button>
             
             
+           
+            
+            
             <form id="select_element" style="display: none">
                 <span>Wstaw element:</span>
                 <br />
@@ -126,7 +129,8 @@
             <button id="submit4" name="submit" onclick="accept_direction();" style="display: none">Wybierz</button>
             <button id="submit5" name="submit" onclick="add_ele();" style="display: none">Wstaw</button>
             
-            
+             <button id="submit7" name="submit" style="display: none" onclick="submit_top();">Wstaw Górny element</button>
+            <button id="submit8" name="submit" style="display: none" onclick="submit_bot();">Wstaw Dolny element</button>
             
         
         
@@ -137,6 +141,7 @@
         </div>
 
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script src="js/forms.js"></script>
     </body>
     
 </html>

@@ -7,6 +7,8 @@ var sub3 = "#submit3";
 var sub4 = "#submit4";
 var sub5 = "#submit5";
 var sub6 = "#submit6";
+var sub7 = "#submit7";
+var sub8 = "#submit8";
 var botelements_form = "#botelements_form";
 var topelements_form = "#topelements_form";
 var click_wstaw = 0;
@@ -17,6 +19,8 @@ var values_bottom = "";
 var values_top = "";
  var width_element= []; 
 var s = 0;
+var id_width = "";
+var id_height = "";
 
 
 
@@ -74,33 +78,58 @@ function add_elements () {
         });
         
 };
-function accept_direction () { 
+window.accept_direction = function () { 
 select_direction = $( "#select_element option:selected" ).val();
     
-    
-    if(select_direction == "top_direct") {
-       click_wstaw = 7;
+    function top_direction () {
+             click_wstaw = 7;
+        id_width = "#" + "width_top";
+        id_height = "#" + "height_top";
         $("#width_topvalue").show();
         $("#select_element").fadeOut(1000);
         $(topelements_form).fadeIn(1000);
         $(sub4).fadeOut(1000, function () {
             $(sub5).fadeIn(1000);
+             $(sub8).fadeIn(2000);
         });
-        
-        
-    }
-    else {
-        click_wstaw = 0;
+        }
+    
+    function bot_direction () {
+             click_wstaw = 0;
+        id_width = "#" + "width_el1";
+        id_height = "#" + "height_el1";
         $("#width_botvalue").show();
-
         $("#select_element").fadeOut(1000);
         $(botelements_form).fadeIn(1000);
         $(sub4).fadeOut(1000, function () {
             $(sub5).fadeIn(1000);
+            $(sub7).fadeIn(2000);
         });
-        
+            
+        }
+    
+    if(select_direction == "top_direct") {
+      top_direction();
+    }
+    else {
+       bot_direction();
     }
     
+window.submit_top = function () {
+        $(botelements_form).fadeOut(1000);
+        $(sub5).fadeOut(1000);
+        $(sub7).fadeOut(1000, function () {
+            top_direction();
+        });
+};
+    
+    window.submit_bot = function () {
+        $(topelements_form).fadeOut(1000);
+        $(sub5).fadeOut(1000);
+        $(sub8).fadeOut(1000, function () {
+            bot_direction();
+        });
+};
 
 };
 function add_ele() {
@@ -108,14 +137,15 @@ function add_ele() {
                     click_wstaw++;
     
                 var elements = $( "#botelements_form option:selected" ).val();
-                var val1_el = $("#width_el1").val();
-                var val2_el = $("#height_el1").val();
+                val1_el = $(id_width).val();
+                val2_el = $(id_height).val();
                 var div_el = "";
                 var img_src = "";
 
                 img_id = "#" + click_wstaw + "img";
                 check_element();
                 set_widthelements();
+    alert(val1_el);
     
                 
     
@@ -169,28 +199,7 @@ function set_widthelements () {
         return width_element;
     }
     create_variables();
-    /*for (var i = 0; i <= click_wstaw.length; i++) {
-        var txt_width = "width_element" + i ;
-        var imagesi = "#" + i + "img";
-        var width_eli = $(imagesi).width();
-        alert(width_eli);
-    } */
-    
-  /*  var width_element1 = $("#1img").width();
-    var width_element2 = $("#2img").width();
-    var width_element3 = $("#3img").width();
-    var width_element4 = $("#4img").width();
-    var width_element5 = $("#5img").width();
-    var width_element6 = $("#6img").width();
-    var width_element7 = $("#7img").width();
-    
-    var width_element8 = $("#8img").width();
-    var width_element9 = $("#9img").width();
-    var width_element10 = $("#10img").width();
-    var width_element11 = $("#11img").width();
-    var width_element12 = $("#12img").width();
-    var width_element13 = $("#13img").width();
-    var width_element14 = $("#14img").width(); */
+   
     
     values_bottom = (width_element[1] + width_element[2] + width_element[3] + width_element[4] + width_element[5] + width_element[6] + width_element[7])/2.25;
     values_top = (width_element[8] + width_element[9] + width_element[10] + width_element[11] + width_element[12] + width_element[13] + width_element[14])/2.25;
@@ -202,3 +211,5 @@ function set_widthelements () {
     $("#width_topvalue").css("margin-left", "+" + values_top + "px");
     
 };
+
+
