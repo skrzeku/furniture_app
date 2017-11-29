@@ -12,11 +12,16 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
         
+        <script type="text/javascript">
+     
+        </script>
     </head>
     <body>
         <div class="container-fluid"> 
     <div class="row">
+        
             <div id="leftone" class="col-md-10 col-sm-12">
+                <div class="col-md-12" id="tittle"><h2>Aplikacja Meble 2017</h2></div>
                 <span id="width_value"></span>
                 <span id="height_value"></span>
         <div id="backgrounds" class="col-md-12">
@@ -24,29 +29,29 @@
             
             
             <div id="top" class="top">
-            <img id="8img" class="imgis" style="display: none"><img id="9img" class="imgis" 
-            style="display: none"><img id="10img" class="imgis" 
-            style="display: none"><img id="11img" class="imgis" 
-            style="display: none"><img id="12img" class="imgis"
-            style="display: none"><img id="13img" class="imgis"
-            style="display: none"><img id="14img" class="imgis" style="display: none">
+            <img id="8img" class="imgtop" style="display: none"><img id="9img" class="imgtop" 
+            style="display: none"><img id="10img" class="imgtop" 
+            style="display: none"><img id="11img" class="imgtop" 
+            style="display: none"><img id="12img" class="imgtop"
+            style="display: none"><img id="13img" class="imgtop"
+            style="display: none"><img id="14img" class="imgtop" style="display: none">
                 
             </div> <!-- End bottom -->
             
             <div id="bottom" class="bottom">
-            <img id="1img" class="imgis" style="display: none"><img id="2img" class="imgis" 
-            style="display: none"><img id="3img" class="imgis" 
-            style="display: none"><img id="4img" class="imgis" 
-            style="display: none"><img id="5img" class="imgis" 
-            style="display: none"><img id="6img" class="imgis" 
-            style="display: none"><img id="7img" class="imgis" style="display: none">
+            <img id="1img" class="imgbot" style="display: none"><img id="2img" class="imgbot" 
+            style="display: none"><img id="3img" class="imgbot" 
+            style="display: none"><img id="4img" class="imgbot" 
+            style="display: none"><img id="5img" class="imgbot" 
+            style="display: none"><img id="6img" class="imgbot" 
+            style="display: none"><img id="7img" class="imgbot" style="display: none">
             
             
             </div> <!-- End top -->
             
             <span id="width_botvalue" style="display: none"></span>
             <span id="width_topvalue" style="display: none"></span>
-           
+           <span id="height_1"></span>
                 
                 </div>  <!-- End backgrounds -->
         
@@ -60,12 +65,13 @@
   <input type="text" name="height" value="" id="last_name"><br>
              <span id ="error"></span><br>
 </form> 
-            <button id="submit" name="submit" onclick="function1();">Uzupełnij</button>
+            <button class="btn btn-success" id="submit" name="submit" onclick="function1();">Uzupełnij</button>
             
             <!-- elements form hiden-->
             <form id="botelements_form" style="display: none">
+                <span class="direction_form"><h4>Elementy Dolne</h4></span>
                 <br />
-                                    <span>Wstaw element:</span><br />
+                                    <span><b>Wstaw element:</b></span><br />
                  <select name="elements">
   <option value="1" selected>szafka 51-60cm</option>
   <option value="2">szafka 41-50</option>
@@ -82,13 +88,14 @@
   <input type="text" name="height" value="" id="height_el1"><br>
                Głębokość [cm]:<br>
   <input type="text" name="deep" value="" id="deep_el1"><br>
-             <span id ="error2"></span><br>
+             <span class="error" id ="error2"></span><br>
             </form>
             
             <!-- elements form hiden-->
             <form id="topelements_form" style="display: none">
+                <span class="direction_span"><h4>Elementy Górne</h4></span>
                 <br />
-                                    <span>Wstaw element:</span><br />
+                                    <span><b>Wstaw element:</b></span><br />
                  <select name="elements">
   <option value="1" selected>szafka 51-60cm</option>
   <option value="2">szafka 41-50</option>
@@ -98,39 +105,65 @@
                      
 </select> 
                 <br /><br />
-                 <span>Podaj wymiary: </span><br />
+                 <span><b>Podaj wymiary: </b></span><br />
                 <span>Szerokość [cm]</span>
   <input type="text" value="" id="width_top"><br>
   Wysokość [cm]:<br>
   <input type="text" name="height" value="" id="height_top"><br>
                Głębokość [cm]:<br>
   <input type="text" name="deep" value="" id="deep_top"><br>
-             <span id ="error3"></span><br>
+             <span class="error" id ="error3"></span><br>
             </form>
             
-            <button id="submit" name="submit" onclick="add_element();" style="display: none">Wstaw</button> 
-            <button id="submit2" name="submit" onclick="add_elements();" style="display: none">Wstaw Elementy</button>
-            <button id="submit6" name="submit" onclick="edit_elements();" style="display: none">Edytuj Elementy</button>
+            <button class="btn" id="submit" name="submit" onclick="add_element();" style="display: none">Wstaw</button> 
+            <button class = "btn btn-primary" id="submit2" name="submit" onclick="add_elements();" style="display: none">Wstaw Elementy</button>
+          
             <button id="submit3" name="submit" style="display: none">Wybierz</button>
+            
+            <form id="edit_select" style="display: none">
+            <span>Wybierz Element do edycji:</span> <br />
+                    <select name="edited_elements">
+                        
+                        
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                   
+                </select>
+            </form>
             
             
            
             
             
             <form id="select_element" style="display: none">
-                <span>Wstaw element:</span>
-                <br />
+                <span><b>Wstaw element:</b></span>
+                <br /><br />
                 <select name ="select_direction">
                 <option value="top_direct" selected>Wiszący</option>
                 <option value="bottom_diect">Stojący</option>
                 </select> 
             </form>
          
-            <button id="submit4" name="submit" onclick="accept_direction();" style="display: none">Wybierz</button>
-            <button id="submit5" name="submit" onclick="add_ele();" style="display: none">Wstaw</button>
+           
+            <button class ="btn" id="submit5" name="submit" onclick="add_ele();" style="display: none">Wstaw</button>
+             <button class ="btn" id="submit4" name="submit" onclick="accept_direction();" style="display: none">Wybierz</button>
+             <button class ="btn btn-direction" id="submit7" name="submit" style="display: none" onclick="submit_top();">Wstaw Górny element</button>
+            <button class="btn btn-direction" id="submit8" name="submit" style="display: none" onclick="submit_bot();">Wstaw Dolny element</button>
+            <button class="btn" id="submit9" onclick="accept_edits();" style="display: none">Wybierz</button>
+              <button class = "btn btn-primary"  id="submit6" name="submit" onclick="edit_elements();" style="display: none">Edytuj Elementy</button>
             
-             <button id="submit7" name="submit" style="display: none" onclick="submit_top();">Wstaw Górny element</button>
-            <button id="submit8" name="submit" style="display: none" onclick="submit_bot();">Wstaw Dolny element</button>
             
         
         
