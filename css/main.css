@@ -18,6 +18,9 @@ span {
    
     height: 90vh;
 }
+.number_element {
+    color: cornflowerblue;
+}
 #width_value {
    margin-left: 80px;
     margin-top: 30px;

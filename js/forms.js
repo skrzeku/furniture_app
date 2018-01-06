@@ -11,7 +11,7 @@ var sub7 = "#submit7";
 var sub8 = "#submit8";
 var botelements_form = "#botelements_form";
 var topelements_form = "#topelements_form";
-var click_wstaw = 0;
+var click_wstaw = 1;
 var select_direction = "";
 var img_id = "";
 var dir_val = "";
@@ -32,6 +32,7 @@ var txte = [];
 var elements = "";
 var txt_elementsform = "";
 var elements_form = "";
+var number_element = "";
 
 
 
@@ -47,18 +48,19 @@ function function1 () {
                             
     
                               $( "#backgrounds" ).css({
-      "width": x* 2.25 + "px",
-      "height": y*1.5 + "px",
-      "max-width": x*2.25 +"px",
-      "max-height": y*1.5 + "px",
+      "width": x* 2.5 + "px",
+      "height": y*2 + "px",
+      "max-width": x*2.5 +"px",
+      "max-height": y*2 + "px",
       "padding": "0px"
       
     });  
                         $("#error").text("");
+                        
                         $("#width_value").text(x + " cm");
                         $("#height_value").text(y + " cm");
-                            $("#width_value").css("width", x* 2.25 + "px");
-                            $("#height_value").css("margin-top", y*1.5/2+60 + "px");
+                            $("#width_value").css("width", x* 2.5 + "px");
+                            $("#height_value").css("margin-top", y*2/2+60 + "px");
                             $("#myForm").fadeOut(1500);
                             $("#submit").fadeOut(1500);
                             $("#first_span").fadeOut(1500, function() {
@@ -113,6 +115,7 @@ select_direction = $( "#select_element option:selected" ).val();
              $(sub8).fadeIn(2000);
             $(sub6).fadeIn(2000);
         });
+        alert(click_wstaw);
         }
     
     function bot_direction () {
@@ -122,14 +125,16 @@ select_direction = $( "#select_element option:selected" ).val();
         $("#width_botvalue").fadeIn(500);
         $("#select_element").fadeOut(1000);
         $(botelements_form).fadeIn(1000);
+       
         txt_elementsform = "#botelements_form option:selected";
         elements_form = botelements_form;
+        
         $(sub4).fadeOut(1000, function () {
             $(sub5).fadeIn(1000);
             $(sub7).fadeIn(2000);
             $(sub6).fadeIn(2000);
         });
-            
+          alert(click_wstaw);  
         }
     
     if(select_direction == "top_direct") {
@@ -161,7 +166,7 @@ window.submit_top = function () {
 };
 function add_ele() {
     
-              
+             
 
     
                 var elements = $(txt_elementsform).val();
@@ -175,9 +180,10 @@ function add_ele() {
 
                 img_id = "#" + click_wstaw + "img";
                  $(".error").text("");
+               
+               
              
                 check_element();
-
                 set_widthelements();
     
    
@@ -193,10 +199,25 @@ function add_ele() {
                     main_addfunc ();
                   
                 }
-                else if (elements == "2") {
+                if (elements == "2") {
                     img_src = "image/squ.png";
                     img_name = txt_element;
                  main_addfunc ();
+                }
+                if (elements == "3") {
+                    img_src = "image/samsung inox.png";
+                    img_name = txt_element;
+                    main_addfunc();
+                }
+                if (elements == "4") {
+                    img_src = "image/side.png";
+                    img_name = txt_element;
+                    main_addfunc();
+                }
+                if (elements == "5") {
+                    img_src = "image/piekarnik.png";
+                    img_name = txt_element;
+                    main_addfunc();
                 }
         
         else {
@@ -206,35 +227,53 @@ function add_ele() {
         
                 function main_addfunc () {
                      
+                    var error_high = "Za duży element!";
+
                     if( click_wstaw < 8 && val1_el > (x-values_bottom)) {
                        $(".error").text("Element przekroczy maksymalną szerokość!");
-                       
                     }
                     else if (click_wstaw > 7 && val1_el > (x-values_top)) {
                         $(".error").text("Element przekroczy maksymalną szerokość!");
                     }
+                   
+                    
                    else if (click_wstaw == 1 && val2_el > (y-height_element[8]/1.5)) {
-                 $(".error").text("Za duży element!");
+                 $(".error").text(error_high);
                   }
                    else if (click_wstaw == 2 && val2_el > (y-height_element[9]/1.5)) {
-                      $(".error").text("Za duży element!");
+                      $(".error").text(error_high);
                   }
                   else if (click_wstaw == 3 && val2_el > (y-height_element[10]/1.5)) {
-                      $(".error").text("Za duży element!");
+                      $(".error").text(error_high);
                    }
                     else if (click_wstaw == 4 && val2_el > (y-height_element[11]/1.5)) {
-                      $(".error").text("Za duży element!");
+                      $(".error").text(error_high);
                    }
+                    else if (click_wstaw == 5 && val2_el > (y-height_element[12]/1.5)) {
+                      $(".error").text(error_high);
+                   }
+                    else if (click_wstaw == 6 && val2_el > (y-height_element[13]/1.5)) {
+                      $(".error").text(error_high);
+                   }
+                    else if (click_wstaw == 7 && val2_el > (y-height_element[14]/1.5)) {
+                      $(".error").text(error_high);
+                   } 
                  
                     else {
                         click_wstaw++;
                          $(img_id).attr('src', img_src);
                         $(img_id).attr('name', img_name);
                     $(img_id).css({
-                        "width": val1_el * 2.25 + "px",
-                        "height": val2_el * 1.5 + "px"
+                        "width": val1_el * 2.5 + "px",
+                        "height": val2_el * 2 + "px"
                     });
                     $(img_id).show();
+                      if(click_wstaw < 8) {
+                          $(".number_element").text("Element " + click_wstaw + ".");
+                      }
+                    else {
+                        $(".number_element").text("Element " + (click_wstaw - 7) + ".");
+                    }
                         
                         
                     }
@@ -276,8 +315,8 @@ create_variables();
     }; 
     
     function print_width () {
-        values_bottom = (width_element[1] + width_element[2] + width_element[3] + width_element[4] + width_element[5] + width_element[6] + width_element[7])/2.25;
-    values_top = (width_element[8] + width_element[9] + width_element[10] + width_element[11] + width_element[12] + width_element[13] + width_element[14])/2.25;
+        values_bottom = (width_element[1] + width_element[2] + width_element[3] + width_element[4] + width_element[5] + width_element[6] + width_element[7])/2.5;
+    values_top = (width_element[8] + width_element[9] + width_element[10] + width_element[11] + width_element[12] + width_element[13] + width_element[14])/2.5;
    
     $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
     $("#width_botvalue").css("margin-left", "+" + values_bottom + "px");
