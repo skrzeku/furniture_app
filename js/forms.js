@@ -57,7 +57,7 @@ function function1 () {
       
     });  
                         $("#error").text("");
-                        
+
                         $("#width_value").text(x + " cm");
                         $("#height_value").text(y + " cm");
                             $("#width_value").css("width", x* 2.5 + "px");
@@ -293,7 +293,7 @@ function add_ele() {
                           $(".number_element").text("Element " + click_wstaw + ".");
                       }
                     else {
-                        $(".number_element").text("Element " + (click_wstaw - 7) + ".");
+                        $(".number_element").text("Element " + click_wstaw + ".");
                     }
                         
                         
@@ -304,6 +304,16 @@ function add_ele() {
     };
     
             };
+function updatebot_value() {
+    $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
+    $("#width_botvalue").css("margin-left", "+" + (values_bottom-30) + "px");
+}
+
+function updatetop_value() {
+    $("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
+    $("#width_topvalue").css("margin-left", "+" + (values_top - 30) + "px");
+}
+
 function set_widthelements () {
    
    width_element[2] = 0; width_element[3] = 0;
@@ -338,12 +348,10 @@ create_variables();
     function print_width () {
         values_bottom = (width_element[1] + width_element[2] + width_element[3] + width_element[4] + width_element[5] + width_element[6] + width_element[7])/2.5;
     values_top = (width_element[8] + width_element[9] + width_element[10] + width_element[11] + width_element[12] + width_element[13] + width_element[14])/2.5;
-   
-    $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
-    $("#width_botvalue").css("margin-left", "+" + values_bottom + "px");
-    
-    $("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
-    $("#width_topvalue").css("margin-left", "+" + values_top + "px");
+
+    updatebot_value();
+    updatetop_value();
+
     }
     
   
@@ -403,7 +411,7 @@ function accept_edits () {
                 click_wstaw = v;
             }
             else {
-                return false;
+                console.log("");
             }
         };
     };
@@ -412,26 +420,38 @@ function accept_edits () {
   
    var selected_edits =  $("#edit_select option:selected").val();
     if (selected_edits < 8) {
+
         var widthselected_bottom = width_element[selected_edits];
         var heightselected_bottom = height_element[selected_edits];
         values_bottom = values_bottom - (widthselected_bottom/2.5);
-        $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
+        updatebot_value();
+
+        //$("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
         $("#width_el1").val(widthselected_bottom/2.5);
         $("#height_el1").val(heightselected_bottom/2);
         $(botelements_form).fadeIn(1000);
         create_edits();
+        $(".number_element").text("Element " + click_wstaw + ".");
+        
+
         $(sub0).attr("name", "submitbot");
         $(sub0).fadeIn(1000);
     }
     else if (selected_edits > 7) {
+
         var widthselected_top = width_element[selected_edits];
         var heightselected_top = height_element[selected_edits];
         values_top = values_top - (widthselected_top/2.5);
-        $("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
+        updatetop_value();
+
+        //$("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
         $("#width_top").val(widthselected_top/2.5);
         $("#height_top").val(heightselected_top/2);
         $(topelements_form).fadeIn(1000);
         create_edits();
+
+        $(".number_element").text("Element " + click_wstaw + ".");
+
         $(sub0).attr("name", "submittop");
         $(sub0).fadeIn(1000);
 
@@ -447,7 +467,7 @@ function accept_editelement() {
     if (spantext_error == "") {
         $(sub0).fadeOut(1000);
         $(elements_form).fadeOut(1000);
-        $("#edit_select").fadeIn(2000);
+        $("#edit_select").fadeIn(1000);
         $("#submit9").fadeIn(2000);
     }
     else {
@@ -455,12 +475,14 @@ function accept_editelement() {
         var nameattr = $(sub0).attr('name');
         if (nameattr == "submitbot") {
             values_bottom = values_bottom - val1_el;
-            $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
+            updatebot_value();
+            //$("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
 
         }
         else if (nameattr == "submittop") {
             values_top = values_top - val1_el;
-            $("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
+            updatetop_value();
+            //$("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
         }
 
 
