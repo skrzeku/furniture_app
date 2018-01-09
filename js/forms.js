@@ -447,8 +447,8 @@ function accept_editelement() {
     if (spantext_error == "") {
         $(sub0).fadeOut(1000);
         $(elements_form).fadeOut(1000);
-        $("#edit_select").fadeIn(1000);
-        $("#submit9").fadeIn(1000);
+        $("#edit_select").fadeIn(2000);
+        $("#submit9").fadeIn(2000);
     }
     else {
 
