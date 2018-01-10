@@ -1,3 +1,5 @@
+                                            //Start with all global variables
+
 var background = "#backgrounds";
 var w_value = "#width_value";
 var h_value = "#height_value";
@@ -15,29 +17,23 @@ var topelements_form = "#topelements_form";
 var click_wstaw = 1;
 var select_direction = "";
 var img_id = "";
-var dir_val = "";
 var values_bottom = "";
 var values_top = "";
- var width_element = [];
-var height = [];
+var width_element = [];
 var id_width = "";
 var id_height = "";
 var x = "";
 var y = "";
 var height_element = [];
-var heighest = "";
-var src1 = "";
 var names = [];
 var img_name = "";
 var txte = [];
-var elements = "";
 var txt_elementsform = "";
 var elements_form = "";
-var number_element = "";
 
 
 
-
+                                //First function to set workspace (height and width)
 
 function function1 () {
     
@@ -98,7 +94,9 @@ function add_elements () {
         });
         
 };
-window.accept_direction = function () { 
+                                //set top or bottom direction to add elements
+
+window.accept_direction = function () {
 select_direction = $( "#select_element option:selected" ).val();
     
     function top_direction () {
@@ -162,6 +160,9 @@ window.submit_top = function () {
 };
 
 };
+
+                                //Main function to add elements!!
+
 function add_ele() {
     
              
@@ -186,19 +187,19 @@ function add_ele() {
     
    
  
-     
+                            //func Check_element (choice images)
     
                 
     
     function check_element () {
                 if (elements == "1") {
-                    img_src = "image/rectangle.png";
+                    img_src = "image/zlewozmywak.png";
                     img_name = txt_element;
                     main_addfunc ();
                   
                 }
                 if (elements == "2") {
-                    img_src = "image/squ.png";
+                    img_src = "image/szafka60.png";
                     img_name = txt_element;
                  main_addfunc ();
                 }
@@ -217,12 +218,27 @@ function add_ele() {
                     img_name = txt_element;
                     main_addfunc();
                 }
+                if (elements == "8") {
+                    img_src = "image/szafka wiszaca.png";
+                    img_name = txt_element;
+                    main_addfunc();
+                }
+                if (elements == "9") {
+                    img_src = "image/okap.png";
+                    img_name = txt_element;
+                    main_addfunc();
+                }
+
+
         
         else {
            return false;
         }
-        
-        
+                                            //main local function (add_ele();)
+
+
+                    // validation to keep element in the workspace (max width)
+
                 function main_addfunc () {
                      
                     var error_high = "Za duży element!";
@@ -234,6 +250,7 @@ function add_ele() {
                         $(".error").text("Element przekroczy maksymalną szerokość!");
                     }
 
+                    // validation of height elements
                     
                    else if (click_wstaw == 1 && val2_el > (y-height_element[8]/2)) {
                  $(".error").text(error_high);
@@ -278,7 +295,7 @@ function add_ele() {
                         $(".error").text(error_high);
                     }
 
-
+                        // If everything goes good, add images into the workspace
 
                     else {
                         click_wstaw++;
@@ -304,6 +321,8 @@ function add_ele() {
     };
     
             };
+                        // 2 small functions to cut lines of code
+
 function updatebot_value() {
     $("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
     $("#width_botvalue").css("margin-left", "+" + (values_bottom-30) + "px");
@@ -327,7 +346,7 @@ function set_widthelements () {
 create_variables();
     create_height();
    print_width();
-   
+                        // loop for to create variables (width_element)
     
        function create_variables () {
         for (var s = 1; s < 14 ; s++) {
@@ -336,7 +355,8 @@ create_variables();
         }
         return width_element;
     }; 
-    
+                        // loop for to create variables (height_element)
+
      function create_height () {
         for (var p = 1; p < 14 ; p++) {
              var img_idh = "#" + p + "img";
@@ -344,7 +364,9 @@ create_variables();
         }
         return height_element;
     }; 
-    
+
+                        // print width elements on bottom and top
+
     function print_width () {
         values_bottom = (width_element[1] + width_element[2] + width_element[3] + width_element[4] + width_element[5] + width_element[6] + width_element[7])/2.5;
     values_top = (width_element[8] + width_element[9] + width_element[10] + width_element[11] + width_element[12] + width_element[13] + width_element[14])/2.5;
@@ -357,6 +379,9 @@ create_variables();
   
     
 };
+
+                                    //function from button change elements
+
 function edit_elements () {
     create_names();
     text_option();
@@ -368,7 +393,7 @@ function edit_elements () {
     
     $("#edit_select").fadeIn(1000);
     $("#submit9").fadeIn(1000);
-    
+                                        //again for loop to create variables
      function create_names () {
         for (var i = 1; i < 15 ; i++) {
              var img_idi = "#" + i + "img";
@@ -376,7 +401,7 @@ function edit_elements () {
         }
         return names;
     }; 
-    
+                                        //for loop to create variables
       function text_option () {
           
           txt_names();
@@ -384,7 +409,6 @@ function edit_elements () {
         for (var l = 1; l < 14 ; l++) {
             
             var edit_formoptions = "#edit_select option[value=" + l + "]";
-            var names_numb 
             txte[l] =  $(edit_formoptions).text(names[l]); 
         }
         return txte;
@@ -397,6 +421,7 @@ function edit_elements () {
     
   
 };
+                                                //function of handling the button accepting changes
 
 function accept_edits () {
     
@@ -415,7 +440,7 @@ function accept_edits () {
             }
         };
     };
-
+                                    //if statement selected options (bottom and top elements)
     
   
    var selected_edits =  $("#edit_select option:selected").val();
@@ -426,7 +451,6 @@ function accept_edits () {
         values_bottom = values_bottom - (widthselected_bottom/2.5);
         updatebot_value();
 
-        //$("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
         $("#width_el1").val(widthselected_bottom/2.5);
         $("#height_el1").val(heightselected_bottom/2);
         $(botelements_form).fadeIn(1000);
@@ -444,7 +468,7 @@ function accept_edits () {
         values_top = values_top - (widthselected_top/2.5);
         updatetop_value();
 
-        //$("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
+
         $("#width_top").val(widthselected_top/2.5);
         $("#height_top").val(heightselected_top/2);
         $(topelements_form).fadeIn(1000);
@@ -461,6 +485,9 @@ function accept_edits () {
 
     
 };
+
+                                            //Run main function with fadeIn elements and if statement
+
 function accept_editelement() {
     add_ele();
     var spantext_error = $(".error").text();
@@ -476,13 +503,13 @@ function accept_editelement() {
         if (nameattr == "submitbot") {
             values_bottom = values_bottom - val1_el;
             updatebot_value();
-            //$("#width_botvalue").text("Całkowita szerokość dolnych elementów: " + values_bottom);
+
 
         }
         else if (nameattr == "submittop") {
             values_top = values_top - val1_el;
             updatetop_value();
-            //$("#width_topvalue").text("Całkowita szerokość górnych elementów: " + values_top);
+
         }
 
 
