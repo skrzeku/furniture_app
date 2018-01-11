@@ -425,8 +425,7 @@ function edit_elements () {
 
 function accept_edits () {
     
-    $("#edit_select").fadeOut(500);
-    $("#submit9").fadeOut(500);
+
     
    
     
@@ -442,14 +441,22 @@ function accept_edits () {
     };
                                     //if statement selected options (bottom and top elements)
     
-  
+  var selected_editstxt = $("#edit_select option:selected").text();
    var selected_edits =  $("#edit_select option:selected").val();
-    if (selected_edits < 8) {
+
+if (selected_editstxt == "") {
+$("#error4").text("Niewłaściwy element!");
+}
+
+    else if (selected_edits < 8) {
+        $("#edit_select").fadeOut(500);
+        $("#submit9").fadeOut(500);
 
         var widthselected_bottom = width_element[selected_edits];
         var heightselected_bottom = height_element[selected_edits];
         values_bottom = values_bottom - (widthselected_bottom/2.5);
         updatebot_value();
+
 
         $("#width_el1").val(widthselected_bottom/2.5);
         $("#height_el1").val(heightselected_bottom/2);
@@ -462,6 +469,8 @@ function accept_edits () {
         $(sub0).fadeIn(1000);
     }
     else if (selected_edits > 7) {
+        $("#edit_select").fadeOut(500);
+        $("#submit9").fadeOut(500);
 
         var widthselected_top = width_element[selected_edits];
         var heightselected_top = height_element[selected_edits];
@@ -481,6 +490,7 @@ function accept_edits () {
 
 
     };
+
 
 
     
